@@ -1,6 +1,6 @@
 # /OptimizedParseArguments.cmake
 #
-# Optimised versions of cmake_parse_arguments, caches the result of
+# Optimized versions of cmake_parse_arguments, caches the result of
 # previous invocations.
 #
 # Use cmake_unit_parse_args_key to parse some arguments and get a "key"
@@ -39,7 +39,7 @@ function (cmake_parse_args_key PREFIX
                                MULTIVAR_ARGS_STRING
                                RETURN_KEY)
 
-    # First get the key for this argv set
+    # First get the key for this variable length arguments set
     string (MD5 CACHE_KEY "${ARGV}")
 
     # Lookup to see if we've parsed arguments like these before
@@ -84,7 +84,7 @@ endfunction ()
 # Fetch the value of a parsed argument from cmake_parse_args_key.
 #
 # A value named ${PREFIX}_${ARGUMENT} will be set in the PARENT_SCOPE
-# after calling this function, much like cmake_parse_args.
+# after calling this function, much like cmake_parse_arguments.
 #
 # CACHE_KEY: The key returned by cmake_parse_args_key
 # PREFIX: The argument prefix as passed to cmake_parse_args_key
