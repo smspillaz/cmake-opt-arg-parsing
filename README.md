@@ -1,3 +1,3 @@
 # cmake-opt-arg-parsing
 
-An optimised version of cmake_parse_arguments.
+An optimized version of cmake_parse_arguments.
