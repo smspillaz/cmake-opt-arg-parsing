@@ -10,7 +10,6 @@ class CMakeOptimizedArgParsingConan(ConanFile):
     requires = ("cmake-include-guard/master@smspillaz/cmake-include-guard", )
     url = "http://github.com/polysquare/cmake-opt-arg-parsing"
     license = "MIT"
-    exports = "*"
 
     def source(self):
         zip_name = "cmake-opt-arg-parsing-master.zip"
