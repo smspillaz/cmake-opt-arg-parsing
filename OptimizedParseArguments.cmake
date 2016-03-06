@@ -9,9 +9,7 @@
 # and will be returned immediately if a result is already present.
 #
 # See /LICENCE.md for Copyright information
-include (conanbuildinfo.cmake)
-
-include ("smspillaz/cmake-include-guard/IncludeGuard")
+include ("cmake/cmake-include-guard/IncludeGuard")
 cmake_include_guard (SET_MODULE_PATH)
 
 include (CMakeParseArguments)
