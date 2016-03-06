@@ -2,24 +2,28 @@ from conans import ConanFile
 from conans.tools import download, unzip
 import os
 
+VERSION = "0.0.1"
 
-class CMakeOptimizedArgParsingConan(ConanFile):
+
+class CMakeOptimizedArgParsing(ConanFile):
     name = "cmake-opt-arg-parsing"
-    version = "master"
-    generators = "cmake"
+    version = os.environ.get("CONAN_VERSION_OVERRIDE", VERSION)
     requires = ("cmake-include-guard/master@smspillaz/cmake-include-guard", )
+    generators = "cmake"
     url = "http://github.com/polysquare/cmake-opt-arg-parsing"
-    license = "MIT"
+    licence = "MIT"
 
     def source(self):
-        zip_name = "cmake-opt-arg-parsing-master.zip"
-        download("https://github.com/polysquare/" +
-                 "cmake-opt-arg-parsing/archive/master.zip", zip_name)
+        zip_name = "cmake-opt-arg-parsing.zip"
+        download("https://github.com/polysquare/"
+                 "cmake-opt-arg-parsing/archive/{version}.zip"
+                 "".format(version="v" + VERSION),
+                 zip_name)
         unzip(zip_name)
         os.unlink(zip_name)
 
     def package(self):
         self.copy(pattern="*.cmake",
                   dst="cmake/cmake-opt-arg-parsing",
-                  src=".",
+                  src="cmake-opt-arg-parsing-" + VERSION,
                   keep_path=True)
